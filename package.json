@@ -1,0 +1,21 @@
+{
+  "name": "HuggingFace",
+  "version": "1.0.0",
+  "description": "A project with HuggingFace.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@huggingface/inference": "^4.13.23",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.22.5",
+    "typescript": "^6.0.3"
+  }
+}
