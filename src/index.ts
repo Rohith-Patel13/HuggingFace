@@ -22,4 +22,16 @@ async function translation() {
    console.log(output);
 }
 
-translation();
+
+async function answerQuestion() {
+  const output = await hf.questionAnswering({
+    model: "deepset/roberta-base-squad2",
+    inputs: {
+      context: "Im learning backhand shot in badminton",
+      question: "What is backhand shot in badminton",
+    },
+  });
+  console.log(output);
+}
+
+answerQuestion();
