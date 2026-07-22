@@ -6,10 +6,11 @@ const hf = new InferenceClient(process.env.HUGGINGFACE_TOKEN);
 
 async function embed() {
    const output = await hf.featureExtraction({
-     provider: "groq",
      inputs: "hello bro",
-     model: "openai/gpt-oss-120b:groq",
+     model: "Qwen/Qwen3-Embedding-8B",
    });
+
+   console.log(output);
 }
 
 embed();
