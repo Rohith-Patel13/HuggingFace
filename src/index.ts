@@ -13,4 +13,13 @@ async function embed() {
    console.log(output);
 }
 
-embed();
+async function translation() {
+   const output = await hf.translation({
+     inputs: "hello world",
+     model: "google-t5/t5-base",
+   });
+
+   console.log(output);
+}
+
+translation();
