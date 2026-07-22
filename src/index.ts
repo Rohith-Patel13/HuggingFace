@@ -1,6 +1,7 @@
 
 import "dotenv/config";
 import { InferenceClient } from "@huggingface/inference";
+import fs from "fs";
 
 const hf = new InferenceClient(process.env.HUGGINGFACE_TOKEN);
 
@@ -34,4 +35,18 @@ async function answerQuestion() {
   console.log(output);
 }
 
-answerQuestion();
+async function textToImageGeneration() {
+  const output = await hf.textToImage({
+    model: "black-forest-labs/FLUX.1-schnell",
+    inputs: "a photo of an astronaut riding a horse",
+  });
+  console.log(output);
+
+  //@ts-ignore
+  const arrayBuffer = await output.arrayBuffer();
+  
+  const buffer = Buffer.from(arrayBuffer);
+  fs.writeFileSync("astronaut.png", buffer);
+  console.log("Image saved as astronaut.png!");
+}
+textToImageGeneration();
